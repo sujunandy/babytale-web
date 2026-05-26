@@ -31,7 +31,7 @@
     <header class="page-header">
       <div class="container-narrow">
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: <strong>May 11, 2026</strong></p>
+        <p class="updated">Last updated: <strong>May 26, 2026</strong></p>
       </div>
     </header>
 
@@ -52,7 +52,8 @@
         <ul>
           <li>We collect only what the app needs to work — sign-in info, the data you log, and the recipes you submit.</li>
           <li>We don't sell your data. We don't run ads. We don't share with marketing partners.</li>
-          <li>Tracker data (feeds, sleep, diapers) lives on your device by default. Cloud sync is opt-in and requires a Premium subscription.</li>
+          <li>Tracker data (feeds, sleep, diapers) lives on your device by default. Cloud sync is opt-in and free for everyone.</li>
+          <li>Sign-in uses Apple Sign In only — we never see your password and you can use Hide My Email if you don't want to share your real address.</li>
           <li>You can delete your account and all server-side data at any time from Settings → Delete account.</li>
         </ul>
 
@@ -68,10 +69,13 @@
 
         <h3>Account information</h3>
         <p>
-          When you sign in with Apple, Google, or email, we receive a user
-          identifier and your email address (if you choose to share it).
-          Authentication is handled by Supabase Inc.; we don't see or store
-          your password.
+          Sign-in uses <strong>Apple Sign In</strong> exclusively. When you
+          sign in, we receive an Apple-issued user identifier and your email
+          address (real or a Hide My Email relay, your choice). Optionally,
+          you can share your name during the first sign-in. We never see or
+          store your Apple ID password — Apple handles authentication
+          end-to-end. The Apple identifier and email are passed through to
+          Supabase Inc., which manages our auth tokens.
         </p>
 
         <h3>Baby profile</h3>
@@ -84,18 +88,19 @@
         <h3>Tracker data</h3>
         <p>
           Feeds, sleep, diaper changes, and any notes you log. Stored locally
-          using Apple SwiftData. If you're a Premium subscriber and tracker sync
-          is enabled, it's also mirrored to our database so a co-parent's phone
-          can read it.
+          using Apple SwiftData. If you sign in and have tracker sync enabled,
+          the entries are also mirrored to our database so a co-parent's phone
+          (or your own iPad) can read the same data.
         </p>
 
         <h3>Community recipes</h3>
         <p>
           If you submit a recipe to the community feed, the title, ingredients,
           steps, country, language, and your chosen display handle are stored
-          and shown publicly to other Babytale users once a moderator approves
-          it. Photos you attach are stored in Supabase Storage and served as
-          public URLs.
+          and shown publicly to other Babytale users once safety review
+          finishes. Photos you attach are stored in Supabase Storage and served
+          as public URLs. We describe how safety review works in the
+          <em>Moderation and safety review</em> section below.
         </p>
 
         <h3>Comments and likes</h3>
@@ -106,12 +111,13 @@
           handle.
         </p>
 
-        <h3>Premium subscription</h3>
+        <h3>Subscriptions</h3>
         <p>
-          We don't see your payment method. Apple handles all transactions and
-          tells us only whether your subscription is active. The information
-          we receive from Apple is your subscription status and your anonymous
-          App Store transaction ids.
+          Babytale is currently a fully free app with no subscription. If we
+          introduce optional paid features in the future, we'll update this
+          page before they go live and explain what (if anything) Apple
+          shares with us. Apple is always the payment processor when paid
+          features exist — we never see your card or payment method.
         </p>
 
         <h3>Device & diagnostic data</h3>
@@ -125,9 +131,39 @@
         <p>
           Local data sits on your device only. Server-side data is hosted on
           <strong>Supabase</strong> infrastructure (database, auth, storage)
-          running on AWS. Server region: <strong>[fill in your Supabase
-          region]</strong>. Authentication providers we delegate to are Apple
-          and Google.
+          running on AWS in the <strong>ca-central-1</strong> region (Montreal,
+          Canada). Authentication is delegated to <strong>Apple Sign In</strong>.
+        </p>
+
+        <h2>Third-party processors</h2>
+        <p>
+          We use a small set of vetted third-party services to run Babytale.
+          Each is named here so you know exactly who has access to what under
+          our instructions.
+        </p>
+        <ul>
+          <li><strong>Apple Inc.</strong> — App distribution (App Store), Sign in with Apple (authentication), StoreKit (any future paid features). Apple's own privacy policy applies to data Apple holds about you. We don't see your Apple ID password.</li>
+          <li><strong>Supabase Inc.</strong> — Hosts our database (Postgres), authentication tokens, file storage (recipe photos), and real-time sync channels. Servers run on AWS infrastructure in Canada.</li>
+          <li><strong>Anthropic, PBC</strong> — Provides the AI safety review used in our community recipe moderation pipeline. When you submit a community recipe, we send the recipe's title, ingredients, and steps (no user identifiers, no email, no baby data) to Anthropic's Claude API to flag potential safety concerns. The result feeds our moderation queue. Anthropic's API does not train on this content.</li>
+        </ul>
+        <p>
+          We do not engage data brokers, ad networks, analytics providers, or
+          marketing platforms.
+        </p>
+
+        <h2>Moderation and safety review</h2>
+        <p>
+          Community recipes go through a layered safety review before they
+          appear in the public feed:
+        </p>
+        <ul>
+          <li><strong>Layer 1 — Deterministic rules.</strong> When you submit, our database runs a set of rule checks against the recipe's ingredients and the stated minimum age (honey for babies under 12 months, raw fish under 24 months, whole nuts under 36 months, etc.). Submissions that fail a rule are rejected with a specific reason so you can fix and resubmit.</li>
+          <li><strong>Layer 2 — AI-assisted nuanced review.</strong> Submissions that pass Layer 1 are sent to a pediatric-nutrition prompt running on Anthropic's Claude API to catch concerns the rules miss (untagged allergens, choking textures, age-inappropriate prep). The output drives whether the recipe is auto-published or held for human review.</li>
+          <li><strong>Layer 3 — Community reports.</strong> Published recipes can be flagged by any signed-in user. After three unresolved reports, a recipe is automatically un-published and reviewed.</li>
+        </ul>
+        <p>
+          You can read more about how recipe safety works on the
+          <a href="/disclaimer.html">Recipe & content disclaimer</a> page.
         </p>
 
         <h2>How we use your data</h2>
@@ -135,8 +171,7 @@
         <ul>
           <li><strong>Run the app.</strong> Show you your own tracker entries, recipes, comments, likes, and shared babies.</li>
           <li><strong>Sync between devices.</strong> Make sure both phones in a co-parent share see the same data, in near real time.</li>
-          <li><strong>Moderate community content.</strong> A human reviews each recipe submission before it appears in the public feed. Some moderation may be assisted by automated tools.</li>
-          <li><strong>Provide subscription features.</strong> Verify your Premium status with Apple and unlock the corresponding features.</li>
+          <li><strong>Moderate community content.</strong> Run the safety review pipeline described above. Hold submissions that warrant human review.</li>
           <li><strong>Reply to support requests.</strong> If you email us, we keep the thread so we can help.</li>
         </ul>
         <p>
@@ -218,6 +253,7 @@
           <ul>
             <li><a href="/#features">Features</a></li>
             <li><a href="/#cultures">Cultures</a></li>
+            <li><a href="/safety.html">Safety</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -232,6 +268,7 @@
           <ul>
             <li><a href="/privacy.html">Privacy</a></li>
             <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
           </ul>
         </div>
       </div>

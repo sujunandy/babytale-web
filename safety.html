@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>How we keep the community safe — Babytale</title>
+  <meta name="description" content="Babytale's three-layer safety review for community recipes — deterministic rules, AI-assisted review, and community reports. Plain English." />
+  <meta name="theme-color" content="#F7F2EC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#12100D" media="(prefers-color-scheme: dark)" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How Babytale keeps the community safe" />
+  <meta property="og:description" content="The three-layer safety review every community recipe goes through before it reaches another parent's feed." />
+  <meta property="og:url" content="https://babytale.ca/safety.html" />
+  <meta property="og:type" content="article" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="brand-mark">b</span>
+        <span>Babytale</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#cultures">Cultures</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/support.html">Support</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <div class="container-narrow">
+        <h1>How we keep the community safe</h1>
+        <p class="updated">
+          The three-layer safety review every community recipe runs through —
+          before it ever lands in another parent's feed.
+        </p>
+      </div>
+    </header>
+
+    <section class="prose">
+      <div class="container-narrow">
+
+        <p>
+          Babytale lets parents share recipes from their own kitchens with
+          parents around the world. The whole reason this works is that the
+          recipes are real — your grandmother's pastina, her mother's
+          miyeokguk, a Saskatoon-apple purée your aunt makes in summer.
+          Real food, real culture, real authenticity.
+        </p>
+
+        <p>
+          But baby food is the one category where the wrong recipe can
+          actually hurt a child. Honey before 12 months can cause infant
+          botulism. Whole grapes are a choking hazard for toddlers. Raw
+          fish carries parasites a baby's immune system can't handle. We
+          can't just let anyone upload anything and call it a feed.
+        </p>
+
+        <p>
+          So every recipe submitted to the community runs through three
+          layers of safety review before it reaches another parent's
+          screen. Here's how they work — in plain English.
+        </p>
+
+        <h2>Layer 1 — Deterministic rules</h2>
+
+        <p>
+          The first layer is a set of explicit, well-documented rules
+          for foods that are dangerous at certain ages. When you submit
+          a recipe, we check the ingredients and the minimum age you've
+          set against these rules. If any rule fires, the submission is
+          rejected before it's ever saved — with a specific reason so
+          you can fix it and try again.
+        </p>
+
+        <p>The current rules cover, among others:</p>
+        <ul>
+          <li><strong>Honey under 12 months.</strong> Infant botulism risk. Hard block.</li>
+          <li><strong>Raw fish (sashimi, ceviche, tartare, etc.) under 24 months.</strong> Parasite and heavy-metal risk.</li>
+          <li><strong>Raw or undercooked eggs under 12 months.</strong> Salmonella risk.</li>
+          <li><strong>Whole nuts under 36 months.</strong> Choking hazard. Chopped, ground, or smooth nut butter is fine.</li>
+          <li><strong>Whole grapes or cherry tomatoes under 36 months.</strong> Unless halved or quartered — they're the most common toddler choking hazard.</li>
+          <li><strong>Cow's milk as a drink under 12 months.</strong> Recommended against by pediatric guidance.</li>
+          <li><strong>Serving raw or undercooked poultry, fish, or meat at any age.</strong> Foodborne illness risk.</li>
+          <li><strong>Recipes targeting babies under 4 months.</strong> Solid foods don't generally start before then.</li>
+        </ul>
+
+        <p>
+          This list grows. If pediatric guidance updates or community
+          feedback surfaces a new pattern worth blocking, we add the
+          rule and every future submission is screened against it.
+        </p>
+
+        <h2>Layer 2 — AI-assisted nuanced review</h2>
+
+        <p>
+          The deterministic rules catch the well-documented don'ts. But
+          plenty of safety concerns are subtler — a recipe with thick
+          peanut butter for a 7-month-old (choking texture), an omelette
+          that doesn't mention cooking through, sugar in a 6-month-old
+          purée, allergens left untagged. Rules can't easily encode
+          these because the concern lives in context, not in a literal
+          word match.
+        </p>
+
+        <p>
+          For these, we use a second layer: an AI review running on
+          Anthropic's Claude API with a pediatric-nutrition prompt. When
+          a submission passes Layer 1, we send the title, ingredients,
+          and steps (not your name, not your email, not any other
+          identifier) to the model and ask: are there concerns at the
+          stated age — choking hazards from preparation, allergens that
+          weren't tagged, dangerous techniques in the steps, or a
+          minimum age that seems too low for what's described?
+        </p>
+
+        <p>
+          If the model returns "safe," the recipe auto-publishes and
+          appears in the community feed within seconds. If it flags
+          concerns, the recipe is held and surfaced to a human for
+          review. The model's reasoning is annotated so the human can
+          quickly understand what to look at.
+        </p>
+
+        <p>
+          Two things worth being clear about:
+        </p>
+        <ul>
+          <li><strong>The AI does not train on your recipe.</strong> Anthropic's API explicitly does not use the data we send for training.</li>
+          <li><strong>The AI is not a doctor.</strong> It's a second pair of eyes on top of the rules. Some concerns will still slip through. The human-review and community-report layers exist to catch what the AI misses.</li>
+        </ul>
+
+        <h2>Layer 3 — Community reports</h2>
+
+        <p>
+          Once a recipe is live, every signed-in user can flag it for
+          review. Reports cover six reasons: unsafe content, wrong
+          minimum age, missing allergen tag, inappropriate content, spam,
+          and a free-form "other." If the same recipe gets three
+          unresolved reports from different users, it's automatically
+          unpublished and goes back to the moderation queue for human
+          review.
+        </p>
+
+        <p>
+          One report per user per recipe — so a single bad actor can't
+          rage-flag content into oblivion. The threshold of three is
+          deliberately low. False positives are easy to fix
+          (re-publish after review). False negatives (real hazards
+          staying live) aren't.
+        </p>
+
+        <h2>What stays your job</h2>
+
+        <p>
+          The safety pipeline is meaningful but not infallible. No
+          automated system catches every concern, and every baby is
+          different. A few things we ask you to keep doing as a parent:
+        </p>
+        <ul>
+          <li><strong>Read every recipe before you make it.</strong> The ingredients, the steps, the minimum age. Trust your eyes, especially on community submissions.</li>
+          <li><strong>Adjust to your baby's stage.</strong> A 9-month-old's texture handling isn't the same as a 12-month-old's. Mash, chop, or thin as needed.</li>
+          <li><strong>Know your allergens.</strong> If your baby has a known allergy or a family history, double-check every ingredient.</li>
+          <li><strong>Talk to your pediatrician.</strong> About introducing solids, allergens, and any food you're unsure about. Babytale doesn't replace that conversation — it gives you something concrete to bring to it.</li>
+          <li><strong>Supervise every feeding.</strong> Sit your baby upright. Stay in the room. Watch every bite, especially for new textures.</li>
+        </ul>
+
+        <h2>What you can do if something looks wrong</h2>
+
+        <p>
+          If you see a recipe in the community feed that looks unsafe,
+          mislabeled, or otherwise problematic:
+        </p>
+        <ul>
+          <li>Tap the report button on the recipe.</li>
+          <li>Or email <a href="mailto:safety@babytale.ca">safety@babytale.ca</a> directly. A real human reads every message.</li>
+        </ul>
+        <p>
+          We review every report. Recipes confirmed unsafe come down,
+          their authors are notified, and repeat offenders lose their
+          ability to publish. Reports that turn out to be a
+          misunderstanding (texture preference, cultural variation,
+          minimum-age difference between countries) get a written
+          response explaining why we kept the recipe up.
+        </p>
+
+        <h2>What we won't do</h2>
+
+        <ul>
+          <li><strong>We won't outsource moderation to no-one.</strong> A pipeline that exists only on paper isn't a pipeline. Every layer above is live in production.</li>
+          <li><strong>We won't pretend the pipeline is perfect.</strong> It isn't. It's a strong first line, paired with your judgment as the parent who's actually feeding your child.</li>
+          <li><strong>We won't share recipe content with advertisers, marketing partners, or data brokers.</strong> The only third parties who see recipe text are Anthropic (for the AI review) and Supabase (for hosting). Both are described in detail in our <a href="/privacy.html">Privacy Policy</a>.</li>
+        </ul>
+
+        <h2>For the legal details</h2>
+
+        <p>
+          Our <a href="/disclaimer.html">Recipe & content disclaimer</a>
+          covers the formal terms around bundled and community recipes,
+          allergen guidance, choking hazards, the limits of automated
+          review, and our policy on reporting concerns. The
+          <a href="/terms.html">Terms of Service</a> and
+          <a href="/privacy.html">Privacy Policy</a> cover the broader
+          legal frame.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Recipe safety concerns:
+          <a href="mailto:safety@babytale.ca">safety@babytale.ca</a>.<br />
+          General support:
+          <a href="mailto:hello@babytale.ca">hello@babytale.ca</a>.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="/" class="brand">
+            <span class="brand-mark">b</span>
+            <span>Babytale</span>
+          </a>
+          <p>A baby tracker with a cultural soul. Made with care, not algorithms.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#cultures">Cultures</a></li>
+            <li><a href="/safety.html">Safety</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>&copy; 2026 Babytale. Made in Canada.</span>
+        <span>babytale.ca</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
