@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Claude Code session worktrees and local state
+.claude/
