@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    Babytale App Store icon — 1024×1024 source SVG.
+
+    Square corners on purpose: Apple's icon mask applies the rounded
+    rectangle automatically at every render size. Providing a square
+    background means the gradient runs all the way to the corners
+    instead of getting clipped by a too-small inner rounded shape.
+
+    Coral gradient mirrors babytale's Theme.btPrimary (#D1836A) →
+    Theme.btAccentA (#DCA08C) so the icon, splash, and brand mark
+    on the website all share one palette.
+
+    The "B" is set in a heavy serif at ~70% of the canvas height,
+    nudged 2% down from the geometric center to compensate for the
+    slightly larger lower bowl most serifs give the capital — same
+    optical correction the SplashView's padding implements in
+    SwiftUI.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D1836A"/>
+      <stop offset="100%" stop-color="#DCA08C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Square background, full canvas — Apple applies the rounded mask. -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- Capital B, white, centered with a small downward bias. -->
+  <text x="512" y="540"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', ui-serif, serif"
+        font-weight="700"
+        font-size="640"
+        fill="#FFFFFF">B</text>
+</svg>

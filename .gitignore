@@ -3,3 +3,6 @@
 
 # Claude Code session worktrees and local state
 .claude/
+
+# Verification artifacts (not deliverables)
+app-icon-preview.png
