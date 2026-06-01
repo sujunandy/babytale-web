@@ -7,10 +7,90 @@
   <meta name="description" content="Get help with Babytale. Common questions, troubleshooting, and a way to reach a real human." />
   <meta name="theme-color" content="#F7F2EC" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#12100D" media="(prefers-color-scheme: dark)" />
+
+  <link rel="canonical" href="https://babytale.ca/support.html" />
+
+  <meta property="og:title" content="Support — Babytale" />
+  <meta property="og:description" content="Get help with Babytale. Common questions, troubleshooting, and a way to reach a real human." />
+  <meta property="og:url" content="https://babytale.ca/support.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://babytale.ca/og-image.png" />
+  <meta property="og:site_name" content="Babytale" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Support — Babytale" />
+  <meta name="twitter:description" content="Common questions, troubleshooting, and a way to reach a real human." />
+  <meta name="twitter:image" content="https://babytale.ca/og-image.png" />
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/style.css" />
+
+  <!-- FAQPage structured data — surfaces these Q&A pairs as rich
+       results in Google search. Match the questions on the page to
+       the headings (h3 elements) one-to-one so the schema and the
+       visible content stay aligned. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does Babytale cost?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nothing. Babytale is currently a fully free app with no subscription, no in-app purchases, and no ads. Every feature — tracker logging, cloud sync, multi-baby support, community recipes, comparisons, baby sharing — is free for every user." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I share my baby with my partner?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open Settings, tap your baby's row, then Share baby. You'll get a code. Your partner taps Have a code on their own Settings screen and enters it. Both phones sync the same baby in real time." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add Babytale widgets to my Home Screen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Long-press an empty space on your Home Screen, tap Edit Home Screen, hit the plus in the top-left, and search Babytale. Three widgets are available: Today (counters at a glance), Quick Log (small, one-tap log buttons), and Quick Log expanded (medium, six tiles including breast timer Left and Right)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I edit a log entry after I tap save?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. In the Tracker tab, tap any entry in the timeline. The edit sheet lets you change start time and duration, or delete the entry. Changes sync to a co-parent's phone in real time." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I export my data?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Settings offers two paths. Export tracker data hands you a CSV of feed, diaper, and sleep entries for the active baby. For a full account dump — recipes, comments, profile, other babies — tap Request my data, which opens Mail pre-filled to privacy@babytale.ca with your account ID." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I delete my account?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In Settings, scroll to Delete account at the bottom. This wipes your data from our servers immediately and signs you out. Local data on the device is also wiped, returning the app to its first-launch state. This action is permanent." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Babytale work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, most of it. Tracking, browsing bundled recipes, comparing cultures, and viewing memories all work fully offline. Community features (browsing other parents' recipes, commenting, liking) and cloud sync require a connection." }
+      },
+      {
+        "@type": "Question",
+        "name": "What languages does Babytale support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "English, French, Spanish, German, and Italian. The app picks up your iPhone's language automatically. You can override it from Settings, Language." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the recipe information in Babytale medical advice?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Recipes and cultural feeding information in Babytale are starting points, not prescriptions. Every baby is different — please talk to your pediatrician about your baby's specific feeding plan, allergens, and developmental milestones." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <!-- Pre-launch banner. Drop the whole element on the day the App
+       Store goes live; nothing else depends on it. -->
+  <div class="launch-banner">
+    🚧 Babytale is launching soon on iOS. Email
+    <a href="mailto:hello@babytale.ca?subject=Babytale%20early%20access">hello@babytale.ca</a>
+    for early access.
+  </div>
 
   <header class="site-header">
     <div class="container nav">

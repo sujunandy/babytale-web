@@ -90,6 +90,62 @@ img {
   display: block;
 }
 
+/* ─── Launch banner ────────────────────────────────────────────────
+   Slim coral bar pinned above the site header on every page while
+   Babytale is still in pre-launch. Remove (or toggle .is-hidden) on
+   the day the App Store goes live — the rest of the layout treats
+   it as additive, so dropping the markup is enough.
+─────────────────────────────────────────────────────────────────── */
+.launch-banner {
+  background: linear-gradient(135deg, var(--bt-primary), var(--bt-accent-a));
+  color: white;
+  text-align: center;
+  font-family: var(--rounded);
+  font-weight: 600;
+  font-size: 13.5px;
+  line-height: 1.4;
+  padding: 10px 20px;
+}
+
+.launch-banner a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
+
+.launch-banner a:hover {
+  opacity: 0.85;
+}
+
+/* ─── Coming-soon pill (homepage hero + CTA) ──────────────────────
+   Replaces the App Store badge while the app is in pre-launch. Same
+   approximate footprint as the badge so the hero layout doesn't
+   reflow when we swap it back on launch day.
+─────────────────────────────────────────────────────────────────── */
+.coming-soon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--bt-ink);
+  color: white;
+  border-radius: 16px;
+  font-family: var(--rounded);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: default;
+}
+
+.coming-soon-pill small {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
 /* ─── Container ─── */
 .container {
   max-width: 1100px;

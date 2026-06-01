@@ -1,0 +1,12 @@
+# babytale.ca crawl directives
+# Static marketing site — everything is fair game for indexing.
+
+User-agent: *
+Allow: /
+
+# Don't waste crawl budget on screenshot assets and asset previews
+# that don't add SEO value.
+Disallow: /screenshots/
+Disallow: /app-icon-preview.png
+
+Sitemap: https://babytale.ca/sitemap.xml
