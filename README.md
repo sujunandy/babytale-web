@@ -1,1 +1,1 @@
-# babytale-web
+# babylore-web

@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
   <!--
-    Babytale App Store icon — 1024×1024 source SVG.
+    Babylore App Store icon — 1024×1024 source SVG.
 
     Square corners on purpose: Apple's icon mask applies the rounded
     rectangle automatically at every render size. Providing a square
     background means the gradient runs all the way to the corners
     instead of getting clipped by a too-small inner rounded shape.
 
-    Coral gradient mirrors babytale's Theme.btPrimary (#D1836A) →
+    Coral gradient mirrors babylore's Theme.btPrimary (#D1836A) →
     Theme.btAccentA (#DCA08C) so the icon, splash, and brand mark
     on the website all share one palette.
 

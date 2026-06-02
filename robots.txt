@@ -1,4 +1,4 @@
-# babytale.ca crawl directives
+# babylore.ca crawl directives
 # Static marketing site — everything is fair game for indexing.
 
 User-agent: *
@@ -9,4 +9,4 @@ Allow: /
 Disallow: /screenshots/
 Disallow: /app-icon-preview.png
 
-Sitemap: https://babytale.ca/sitemap.xml
+Sitemap: https://babylore.ca/sitemap.xml

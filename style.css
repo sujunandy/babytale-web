@@ -1,7 +1,7 @@
 /* ──────────────────────────────────────────────────────────────────
-   Babytale.ca — shared stylesheet
+   Babylore.ca — shared stylesheet
    ──────────────────────────────────────────────────────────────────
-   Brand-aligned with the iOS app palette in Babytale/Theme.swift.
+   Brand-aligned with the iOS app palette in Babylore/Theme.swift.
    Two themes: warm cream/coffee in light, warm charcoal in dark.
    System fonts only — no FOUT, instant first paint.
    ────────────────────────────────────────────────────────────────── */
@@ -92,7 +92,7 @@ img {
 
 /* ─── Launch banner ────────────────────────────────────────────────
    Slim coral bar pinned above the site header on every page while
-   Babytale is still in pre-launch. Remove (or toggle .is-hidden) on
+   Babylore is still in pre-launch. Remove (or toggle .is-hidden) on
    the day the App Store goes live — the rest of the layout treats
    it as additive, so dropping the markup is enough.
 ─────────────────────────────────────────────────────────────────── */
